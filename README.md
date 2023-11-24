@@ -1,4 +1,4 @@
-# Linking Data
+# Linking Parts
 Project for Semantic Web course at FCFM.
 
 ## Colab
