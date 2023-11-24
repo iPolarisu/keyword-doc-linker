@@ -2,7 +2,7 @@
 Project for Semantic Web course at FCFM.
 
 ## Colab
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iPolarisu/linking-data/blob/main/steam_games_keyword_linker.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/iPolarisu/linking-parts/blob/main/steam_games_keyword_linker.ipynb)
 
 ## SPARQL Queries
 You can query the generated TTL file at the [course's virtuoso service](https://cc7220.dcc.uchile.cl:8900/sparql).
