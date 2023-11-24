@@ -1,0 +1,31 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX : <http://ex.org/> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+
+# check https://cc7220.dcc.uchile.cl:8900/sparql
+
+#q1
+SELECT ?game1Label ?game2Label (COUNT(?keyphrase) as ?keyphraseCount)
+FROM <https://grupo1.cl>
+WHERE {
+   ?game1 :hasKP ?keyphrase .
+   ?game2 :hasKP ?keyphrase .
+   FILTER(?game1 != ?game2)
+   ?game1 rdfs:label ?game1Label .
+   ?game2 rdfs:label ?game2Label .
+   FILTER(?game1Label < ?game2Label)
+}
+GROUP BY ?game1Label ?game2Label
+ORDER BY DESC (?keyphraseCount)
+
+#q2
+SELECT ?dev1 ?dev2 (COUNT(?keyphrase) as ?keyphraseCount)
+FROM <https://grupo1.cl>
+WHERE {
+   ?game1 :hasKP ?keyphrase; :dev ?dev1 .
+   ?game2 :hasKP ?keyphrase; :dev ?dev2 .
+   FILTER(?dev1 != ?dev2)
+}
+GROUP BY ?dev1 ?dev2
+ORDER BY DESC (?keyphraseCount)
